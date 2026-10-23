@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@google/genai": "^2.31.0",
-    "@next/swc-win32-x64-msvc": "^16.2.9",
     "next": "16.2.9",
     "react": "19.3.1",
     "react-dom": "19.3.1"

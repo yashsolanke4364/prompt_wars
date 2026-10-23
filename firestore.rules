@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Deny all access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Curated scholarship directory: read-only for all users, writes blocked
+    match /scholarships/{scholarshipId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Private student profiles: strictly restricted to authenticated owner
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /profile/{profileId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId
+          && request.resource.data.id == userId;
+      }
+
+      // Tracked applications: strictly restricted to authenticated owner
+      match /trackedApplications/{appId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Private activity logs: strictly restricted to authenticated owner
+      match /activity/{activityId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

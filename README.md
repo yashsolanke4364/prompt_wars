@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎓 ScholarshipSaathi AI
 > **Intelligent Scholarship Eligibility & Application-Readiness Platform for Students in India**  
 > *Built for the "Build Beyond AI: Engineer Secure, Intelligent and Autonomous Applications" Challenge.*
@@ -160,3 +161,6 @@ The fastest and most reliable deployment path for this Next.js App Router applic
 
 ## 👥 Built with Excellence
 Created for the **Build Beyond AI** Hackathon Challenge.
+=======
+# prompt_wars
+>>>>>>> b0f26f37259f62db37e9d3bfaf238cc6656f99f2

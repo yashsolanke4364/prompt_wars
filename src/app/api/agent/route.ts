@@ -228,6 +228,12 @@ function validateAIOutput(
     warnings.push(mandatoryDisclaimer);
   }
 
+  const suspiciousContent =
+    knownScholarshipNames.length > 0 &&
+    !knownScholarshipNames.some((name) =>
+      summary.toLowerCase().includes(name.toLowerCase())
+    );
+
   if (suspiciousContent && summary.length > 100) {
     // AI may have hallucinated - add warning
     warnings.push(
